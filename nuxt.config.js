@@ -50,6 +50,12 @@ export default {
     "bootstrap-vue/nuxt",
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
+
+    // Simple usage
+    "cookie-universal-nuxt",
+
+    // With options
+    ["cookie-universal-nuxt", { alias: "cookiz" }],
   ],
 
   // Public run time configuration
@@ -65,6 +71,12 @@ export default {
   proxy: {
     "/clients": process.env.HYDRA_PROXY_URL,
     "/oauth2": process.env.HYDRA_PROXY_URL,
+  },
+
+  env: {
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    tokenEndpoint: process.env.TOKEN_ENDPOINT,
   },
 
   // router: {

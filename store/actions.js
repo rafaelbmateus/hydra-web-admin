@@ -1,7 +1,7 @@
 import { request } from "@/store/api.js";
 export default {
-  getClientList({ commit }) {
-    return request(this.$axios, "get", `/clients`)
+  getClientList({ commit }, cookies) {
+    return request(this.$axios, "get", `/clients`, null, cookies)
       .then((response) => {
         commit("clientsList", response);
       })

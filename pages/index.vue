@@ -27,8 +27,8 @@ export default {
     Add,
   },
   layout: "client",
-  async asyncData({ store }) {
-    await store.dispatch("getClientList");
+  async asyncData({ store, app }) {
+    await store.dispatch("getClientList", app.$cookies);
     return {};
   },
   watchQuery: true,

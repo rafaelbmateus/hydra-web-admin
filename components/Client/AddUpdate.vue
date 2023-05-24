@@ -33,7 +33,6 @@
             id="client_secret"
             v-model="form.client_secret"
             minlength="6"
-            required
           ></b-form-input>
           <b-form-text>leave blank to generate</b-form-text>
         </b-form-group>
