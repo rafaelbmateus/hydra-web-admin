@@ -1,6 +1,6 @@
-# Hydra Web UI
+# Hydra Web Admin
 
-Web Management UI for Hydra oAuth Server
+Web Management UI for [Hydra OAuth Server](https://github.com/ory/hydra).
 
 ## Setup
 
