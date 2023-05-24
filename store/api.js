@@ -1,10 +1,13 @@
-export async function request(axios, type, url, data) {
+import AuthService from "./auth";
+
+/*
+ * @cookies: nuxt lib for cookies
+ * Documentation: https://www.npmjs.com/package/cookie-universal-nuxt
+ */
+export async function request(axios, type, url, data, cookies) {
   let request;
 
-  const token = await getToken(
-    process.env.CLIENT_ID,
-    process.env.CLIENT_SECRET
-  );
+  const token = await AuthService.getToken(cookies);
 
   const config = {
     headers: {
@@ -28,25 +31,4 @@ export async function request(axios, type, url, data) {
   }
 
   return request;
-}
-
-export async function getToken(clientId, clientSecret) {
-  const axios = require("axios");
-  const qs = require("qs");
-
-  const data = qs.stringify({
-    client_id: clientId,
-    client_secret: clientSecret,
-    grant_type: "client_credentials",
-  });
-
-  const config = {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-  };
-
-  const res = await axios.post(process.env.TOKEN_ENDPOINT, data, config);
-
-  return res.data.access_token;
 }
